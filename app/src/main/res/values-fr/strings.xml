@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MGI_FinalProject</string>
+    <string name="new_search">Nouvelle recherche</string>
+    <string name="search">Rechercher des articles</string>
+    <string name="fav">Articles enregistrés</string>
+    <string name="back">Dos</string>
+    <string name="welcome">Bienvenue dans la recherche Guardian News !</string>
+    <string name="help">Aide</string>
+    <string name="open">Ouvrir</string>
+    <string name="close">Fermer</string>
+    <string name="srch">Recherche</string>
+    <string name="title">Titre:</string>
+    <string name="sec">Section:</string>
+    <string name="url">URL:</string>
+    <string name="last">Dernier article</string>
+    <string name="toast_message">Ajouté aux articles enregistrés</string>
+    <string name="snack_message">Article supprimé</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="undo">Défaire</string>
+    <string name="home">Page d\'accueil</string>
+    <string name="sAlert">Saisissez votre recherche dans la barre de recherche. Cliquez sur le titre pour lequel vous souhaitez plus d\'informations ou maintenez le doigt dessus pour l\ajouter à vos articles enregistrés.</string>
+    <string name="fAlert">Cliquez sur le titre sur lequel vous souhaitez plus d\'informations ou maintenez-le enfoncé pour le supprimer de vos articles enregistrés</string>
+    <string name="dAlert">Cliquez sur le lien URL pour ouvrir votre article.</string>
+</resources>

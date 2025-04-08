@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,9 +28,11 @@ public class DataManager {
 
         String[][] articles;
         private final SearchFragment fragment;
+        ProgressBar progressBar;
 
-        public fetchData(SearchFragment fragment) {
+        public fetchData(SearchFragment fragment, ProgressBar progressBar) {
             this.fragment = fragment;
+            this.progressBar = progressBar;
         }
 
 
@@ -91,11 +95,14 @@ public class DataManager {
             }
 
         }
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+        }
 
         protected void onPostExecute(String[][] results) {
             if (results != null) {
                 fragment.updateList(results); // this passes the data back to the UI
-
+                progressBar.setVisibility(View.GONE);
                 Log.d("complete", "onPostExecute");
             }
         }
@@ -153,5 +160,21 @@ public class DataManager {
         }
 
         return articles;
+    }
+
+
+    static void deleteFavourite(Context context, int position) throws JSONException {
+
+        String PREFS_FILE = "com.example.sharedPreferences.SavedArticles";
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        //Load existing data
+        String json = prefs.getString("FAV_LIST", "[]");
+        JSONArray favList = new JSONArray(json);
+        favList.remove(position);
+        // add back to file
+        editor.putString("FAV_LIST", favList.toString());
+        editor.apply();
+
     }
 }

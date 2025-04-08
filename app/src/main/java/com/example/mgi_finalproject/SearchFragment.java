@@ -1,6 +1,8 @@
 
 package com.example.mgi_finalproject;
 
+import static android.app.ProgressDialog.show;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,19 +44,23 @@ public class SearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         searchList = view.findViewById(R.id.search_list);
 
+        ProgressBar progressBar = view.findViewById(R.id.bar);
+        progressBar.setVisibility(View.GONE);
+
         searchBar = view.findViewById(R.id.search_bar);
 
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
-                new DataManager.fetchData(SearchFragment.this).execute(query);
+                progressBar.setVisibility(View.VISIBLE);
+                new DataManager.fetchData(SearchFragment.this, progressBar).execute(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                new DataManager.fetchData(SearchFragment.this).execute(newText);
+                progressBar.setVisibility(View.VISIBLE);
+                new DataManager.fetchData(SearchFragment.this, progressBar).execute(newText);
                 return false;
             }
 
@@ -103,7 +111,9 @@ public class SearchFragment extends Fragment {
                 throw new RuntimeException(e);
             }
 
-            return false;
+            Toast.makeText(getContext(), getResources().getString(R.string.toast_message), Toast.LENGTH_LONG).show();
+
+            return true;
         });
 
     }

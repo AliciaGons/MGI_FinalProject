@@ -13,4 +13,13 @@
     <string name="sec">Section:</string>
     <string name="url">URL:</string>
     <string name="last">Last Article</string>
+    <string name="toast_message">Added to Saved Articles</string>
+    <string name="snack_message">Article Deleted</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="undo">Undo</string>
+    <string name="home">Home Page</string>
+    <string name="sAlert">Enter your search in to the search bar. Click the title you want more information about, or hold down on it to add it to your saved articles.</string>
+    <string name="fAlert">Click the title you want more information about, or hold down on it to remove it from your saved articles</string>
+    <string name="dAlert">Click the URL link to open your article.</string>
 </resources>
