@@ -34,9 +34,6 @@ public class SearchFragment extends Fragment {
     ListView searchList;
 
 
-// TO DO: set add.setOnClickListener() to open the article info
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

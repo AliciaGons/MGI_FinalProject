@@ -162,7 +162,6 @@ public class DataManager {
         return articles;
     }
 
-
     static void deleteFavourite(Context context, int position) throws JSONException {
 
         String PREFS_FILE = "com.example.sharedPreferences.SavedArticles";
